@@ -1,0 +1,9 @@
+<div class="form-group" ng-class="{'has-error':(frmSurvey.field_email_{{key}}_{{index}}.$invalid &&
+(frmSurvey.field_email_{{key}}_{{index}}.$dirty || submitted))}">
+    <input type="email"
+        name="field_email_{{key}}_{{index}}"
+        ng-model="response[key]['fields'][index]"
+        class="form-control" ng-required="field.required" />
+    <strong class="help-block" ng-show="frmSurvey.field_email_{{key}}_{{index}}.$invalid &&
+    (frmSurvey.field_email_{{key}}_{{index}}.$dirty || submitted)">{{field.message.required}}</strong>
+</div>

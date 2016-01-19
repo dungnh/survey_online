@@ -1,0 +1,20 @@
+.glyphicon-color-red{
+    color: #BB0000 !important;
+}
+.text-div{
+    border: 1px solid blue;
+}
+    .tab-block .tab-content{
+      /*min-height: 241px;*/
+    }
+    .checkbox-inline{
+      padding-left: 0;
+    }
+    .tab-pane input {
+        /*margin-bottom: 5px;
+        margin-top: 5px;*/
+    }
+    .survey-create, .survey-view {
+        max-height: 600px;
+        overflow: scroll;
+    }

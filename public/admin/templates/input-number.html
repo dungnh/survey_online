@@ -1,0 +1,13 @@
+<div class="form-group"  ng-class="{'has-error':frmSurvey.field_number_{{key}}_{{index}}.$invalid &&
+(frmSurvey.field_number_{{key}}_{{index}}.$dirty || submitted)}">
+    <input type="number"
+        name="field_number_{{key}}_{{index}}"
+        ng-model="response[key]['fields'][index]"
+        class="form-control"
+        min="{{field.min}}"
+        max="{{field.max}}"
+        ng-required="field.required" />
+    <strong class="help-block"
+    ng-show="frmSurvey.field_number_{{key}}_{{index}}.$invalid &&
+    (frmSurvey.field_number_{{key}}_{{index}}.$dirty || submitted)">{{field.message.required}}</strong>
+</div>

@@ -1,0 +1,10 @@
+<div class="form-group"  ng-class="{'has-error':frmSurvey.field_textarea_{{key}}_{{index}}.$error.required &&
+(frmSurvey.field_textarea_{{key}}_{{index}}.$dirty || submitted)}">
+    <textarea ng-model="response[key]['fields'][index]"
+        name="field_textarea_{{key}}_{{index}}"
+        ng-required="field.required"
+        class="form-control" rows="2">
+    </textarea>
+    <strong class="help-block" ng-show="frmSurvey.field_textarea_{{key}}_{{index}}.$error.required &&
+    (frmSurvey.field_textarea_{{key}}_{{index}}.$dirty || submitted)">{{field.message.required}}</strong>
+</div>
