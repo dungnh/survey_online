@@ -13,14 +13,15 @@ use Illuminate\Routing\Router;
 
 class DashboardController extends Controller
 {
+    /**
+     * Get index
+     *
+     * @param Router $router Router
+     *
+     * @return respone
+     */
     public function index(Router $router)
     {
-        // $routeCollection = $router->getRoutes();
-
-        // foreach ($routeCollection as $value) {
-        //     echo $value->getPath().'<br>';
-        // }
-        // dd();
         $title = 'Dashboard';
         $users = User::count();
         $static_page = 243;

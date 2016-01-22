@@ -45,7 +45,7 @@ class User extends Model implements
     /**
      * Checks a Permission.
      *
-     * @param  String permission Slug of a permission (i.e: manage_user)
+     * @param String $permission Slug of a permission (i.e: manage_user)
      *
      * @return Boolean true if has permission, otherwise false
      */
@@ -59,7 +59,7 @@ class User extends Model implements
     /**
      * Check if the permission matches with any permission user has.
      *
-     * @param  String permission slug of a permission
+     * @param String $perm permission slug of a permission
      *
      * @return Boolean true if permission exists, otherwise false
      */

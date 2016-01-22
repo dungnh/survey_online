@@ -14,6 +14,10 @@ use View;
 abstract class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    /**
+     * Construct
+     */
     public function __construct()
     {
         $info_user = User::find(Auth::id());

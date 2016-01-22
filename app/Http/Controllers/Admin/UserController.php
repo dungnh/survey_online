@@ -39,7 +39,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request Request
      *
      * @return \Illuminate\Http\Response
      */
@@ -61,6 +61,8 @@ class UserController extends Controller
 
     /**
      * Display the form for change password.
+     *
+     * @return view
      */
     public function changepw()
     {
@@ -69,8 +71,12 @@ class UserController extends Controller
 
     /**
      * Change password.
+     *
+     * @param Request $request Request
+     *
+     * @return void
      */
-	public function updatepw(Request $request)
+    public function updatepw(Request $request)
     {
         $crpassword = $request->input('crpassword');
         $user_id = Auth::id();
@@ -87,8 +93,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int                      $id
+     * @param \Illuminate\Http\Request $request Request
      *
      * @return \Illuminate\Http\Response
      */

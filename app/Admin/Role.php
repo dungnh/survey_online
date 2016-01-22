@@ -21,7 +21,7 @@ class Role extends Model
     */
 
     /**
-     * many-to-many relationship method.
+     * Many-to-many relationship method.
      *
      * @return QueryBuilder
      */
@@ -31,7 +31,7 @@ class Role extends Model
     }
 
     /**
-     * many-to-many relationship method.
+     * Many-to-many relationship method.
      *
      * @return QueryBuilder
      */
@@ -42,7 +42,8 @@ class Role extends Model
     /**
      * Save data.
      *
-     * @parram Request
+     * @param Request $request Request
+     * @param ID      $role_id ID
      *
      * @return ID
      */
@@ -64,6 +65,13 @@ class Role extends Model
         }
     }
 
+    /**
+     * Select box role
+     *
+     * @param Array $select_id List Id
+     *
+     * @return DOM
+     */
     public function selectBoxRole($select_id = array())
     {
         $list_role = self::all();

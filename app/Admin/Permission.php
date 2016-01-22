@@ -21,7 +21,7 @@ class Permission extends Model
     */
 
     /**
-     * many-to-many relationship method.
+     * Many-to-many relationship method.
      *
      * @return QueryBuilder
      */
@@ -33,9 +33,10 @@ class Permission extends Model
     /**
      * Save data.
      *
-     * @parram Request
+     * @param Request $request Request
+     * @param ID      $role_id ID
      *
-     * @return ID
+     * @return int
      */
     public function saveData($request, $role_id)
     {

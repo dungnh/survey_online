@@ -26,7 +26,7 @@ class SettingController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request Request
      *
      * @return \Illuminate\Http\Response
      */

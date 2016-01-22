@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Language extends Model
 {
-     /**
+    /**
      * The database table used by the model.
      *
      * @var string
@@ -19,11 +19,18 @@ class Language extends Model
      */
     protected $fillable = ['code', 'language_name', 'is_default'];
 
-    public function getDefaultLanguage(){
-        $language = Language::where('is_default', '=', '1')->first();
-        if(!$language) {
+    /**
+     * Get default language
+     *
+     * @return string
+     */
+    public function getDefaultLanguage()
+    {
+        $language = self::where('is_default', '=', '1')->first();
+        if (!$language) {
             return 'en';
         }
+
         return $language->code;
     }
 }

@@ -14,6 +14,9 @@ class GroupUserController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request Request
+     * @param Role    $role    Role
+     *
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request, Role $role)
@@ -25,6 +28,8 @@ class GroupUserController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     *
+     * @param Router $router Router
      *
      * @return \Illuminate\Http\Response
      */
@@ -38,7 +43,7 @@ class GroupUserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request Request
      *
      * @return \Illuminate\Http\Response
      */
@@ -57,7 +62,6 @@ class GroupUserController extends Controller
                             ->with('status', 'fail')
                             ->with('msg', 'Can not save data.');
         } else {
-            // Add permission
             $role_id = $role_id ? $role_id : $results_role;
             $permissions = new Permission();
             $results = $permissions->saveData($request, $role_id);
@@ -76,7 +80,7 @@ class GroupUserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param Request $request Request
      *
      * @return \Illuminate\Http\Response
      */
@@ -109,8 +113,7 @@ class GroupUserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int                      $id
+     * @param \Illuminate\Http\Request $request Request
      *
      * @return \Illuminate\Http\Response
      */
@@ -126,6 +129,7 @@ class GroupUserController extends Controller
             $array_permission[] = $value->permission_slug;
         }
         $action_configs = \Config::get('action');
+
         return view('admin.user.updategroup', compact('modules', 'role', 'array_permission', 'action_configs'));
     }
 }

@@ -25,14 +25,17 @@ class AppLanguage extends Model
                             'lack',
                             'total',
                             ];
-
+    /**
+     * Get default language
+     *
+     * @return string
+     */
     public static function getDefaultLanguage()
     {
         $language = self::where('is_default', '=', '1')->first();
-        if(!$language) {
+        if (!$language) {
             return 'en';
         }
-
         return $language->code;
     }
 }

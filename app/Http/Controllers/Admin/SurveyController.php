@@ -3,24 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Admin\Survey;
 use Illuminate\Support\Facades\Auth;
-use Hash;
+
 class SurveyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -34,7 +22,8 @@ class SurveyController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request Request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -42,19 +31,21 @@ class SurveyController extends Controller
         return str_random(6).md5(time());
         $data = json_encode($request->all());
         $result = Survey::create([
-            'user_id' =>  Auth::user()->id,
-            'content' => $data
+            'user_id' => Auth::user()->id,
+            'content' => $data,
         ]);
-        if($result) {
-            return "true";
+        if ($result) {
+            return 'true';
         }
-        return "false";
+
+        return 'false';
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id ID
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -62,49 +53,38 @@ class SurveyController extends Controller
         return view('admin.survey.show', compact('id'));
     }
 
+    /**
+     * Get Data
+     *
+     * @param Int $id ID
+     *
+     * @return string
+     */
     public function getData($id)
     {
         $survey = Survey::findorfail($id);
-        //$z =["a"=>"asdasd", "b"=>"123123"];
-        //return json_decode($z);
-        return ($survey->content);
+        return $survey->content;
     }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id ID
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
     }
-
-    public function listModules(){
+    /**
+     * Get Link Module
+     *
+     * @return json
+     */
+    public function listModules()
+    {
         $modules = \App\Admin\Module::all();
+
         return json_encode($modules);
     }
 }

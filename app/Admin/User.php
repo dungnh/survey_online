@@ -31,9 +31,10 @@ class User extends Model
     /**
      * Upload images.
      *
-     * @parram Images
+     * @param Request $request Request
+     * @param Int     $user_id User id
      *
-     * @return Image name
+     * @return int
      */
     public function changePassword($request, $user_id)
     {
@@ -45,6 +46,14 @@ class User extends Model
         return $user_id;
     }
 
+    /**
+     * Save data.
+     *
+     * @param Request $request Request
+     * @param Int     $user_id User id
+     *
+     * @return int
+     */
     public function saveData($request, $user_id = '')
     {
         $password = '';

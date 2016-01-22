@@ -23,16 +23,16 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
-/**
+/*
  * Frontend Routes
  */
 Route::group(['prefix' => $language], function ($router) {
-    require (__DIR__ . "/Routes/Frontend/Frontend.php");
+    require __DIR__.'/Routes/Frontend/Frontend.php';
 });
 
-/**
+/*
  * Backend Routes
  */
 $router->group(['prefix' => 'cpanel', 'middleware' => 'auth'], function ($router) {
-    require (__DIR__ . "/Routes/Backend/cpanel.php");
+    require __DIR__.'/Routes/Backend/cpanel.php';
 });
