@@ -58,12 +58,11 @@ class ModuleController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request Request
-     * @param int                      $id      ID
+     * @param int $id ID
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
         $modules = Module::with('actions')->get()->find($id);
         $action_configs = \Config::get('action');

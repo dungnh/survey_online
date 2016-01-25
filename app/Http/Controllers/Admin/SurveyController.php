@@ -65,17 +65,7 @@ class SurveyController extends Controller
         $survey = Survey::findorfail($id);
         return $survey->content;
     }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id ID
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+
     /**
      * Get Link Module
      *

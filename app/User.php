@@ -79,7 +79,6 @@ class User extends Model implements
      */
     protected function getAllPernissionsFormAllRoles()
     {
-        $permissionsArray = [];
         $permissions = $this->roles->load('permissions')->fetch('permissions')->toArray();
 
         return array_map('strtolower', array_unique(array_flatten(array_map(function ($permission) {
@@ -95,7 +94,6 @@ class User extends Model implements
      */
     public function hasAccess()
     {
-        $permissionsArray = [];
         $permissions = $this->roles->load('permissions')->fetch('permissions')->toArray();
 
         return array_map('strtolower', array_unique(array_flatten(array_map(function ($permission) {

@@ -14,12 +14,11 @@ class GroupUserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param Request $request Request
-     * @param Role    $role    Role
+     * @param Role $role Role
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, Role $role)
+    public function index(Role $role)
     {
         $roles = $role->paginate(\Config::get('custom.items_per_page'));
 
@@ -29,11 +28,9 @@ class GroupUserController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @param Router $router Router
-     *
      * @return \Illuminate\Http\Response
      */
-    public function create(Router $router)
+    public function create()
     {
         $modules = Module::get();
 
@@ -54,9 +51,9 @@ class GroupUserController extends Controller
         $results_role = $roles->saveData($request, $role_id);
         $info_role = $roles->find($results_role);
         // Delete all old permissions
-        $delete_permission = $info_role->permissions()->delete();
+        $info_role->permissions()->delete();
         // Detact all pivot And Remove all permission off group
-        $detact = $info_role->permissions()->detach();
+        $info_role->permissions()->detach();
         if (!$results_role) {
             return redirect()->route('cpanel.groupuser.index')
                             ->with('status', 'fail')
@@ -90,7 +87,7 @@ class GroupUserController extends Controller
         $roles = new Role();
         $role = $roles->find($role_id);
         if ($role) {
-            $delete_permission = $role->permissions()->delete();
+            $role->permissions()->delete();
             $detact = $role->permissions()->detach();
             $detact = $role->users()->detach();
             $results = $roles->find($role_id)->delete();
@@ -125,7 +122,7 @@ class GroupUserController extends Controller
         $role = $roles->find($role_id);
         $permission = $role->permissions()->get();
         $array_permission = array();
-        foreach ($permission as $key => $value) {
+        foreach ($permission as $value) {
             $array_permission[] = $value->permission_slug;
         }
         $action_configs = \Config::get('action');

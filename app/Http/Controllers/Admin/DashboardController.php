@@ -16,11 +16,9 @@ class DashboardController extends Controller
     /**
      * Get index
      *
-     * @param Router $router Router
-     *
      * @return respone
      */
-    public function index(Router $router)
+    public function index()
     {
         $title = 'Dashboard';
         $users = User::count();

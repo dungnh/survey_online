@@ -61,7 +61,7 @@ class User extends Model
         if ($user_id) {
             $user = self::find($user_id);
             //Dectach
-            $detact = $user->roles()->detach();
+            $user->roles()->detach();
             $password = $user->password;
         } else {
             // Check duplicate
@@ -82,8 +82,7 @@ class User extends Model
         $user->password = $new_password;
         $results = $user->save();
         if ($results) {
-            $results_return = $user->roles()->attach($role_id);
-
+            $user->roles()->attach($role_id);
             return $user->id;
         } else {
             return $results;
@@ -96,7 +95,6 @@ class User extends Model
      */
     public function hasAccess()
     {
-        $permissionsArray = [];
         $permissions = $this->roles->load('permissions')->fetch('permissions')->toArray();
 
         return array_map('strtolower', array_unique(array_flatten(array_map(function ($permission) {

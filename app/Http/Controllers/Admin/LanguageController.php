@@ -55,7 +55,7 @@ class LanguageController extends Controller
     {
         $idLang = $request->input('lang');
         $infoLang = Language::find($idLang);
-        $langeName = $infoLang->languages;
+        $infoLang->languages;
 
         $languages = new AppLanguage();
         $languages->code = $infoLang->code;

@@ -84,7 +84,7 @@ class UserController extends Controller
         $old_password = $info_user->password;
         if (Hash::check($crpassword, $old_password)) {
             $user = new User();
-            $affect_row = $user->changePassword($request, $user_id);
+            $user->changePassword($request, $user_id);
             echo 'true';
         } else {
             echo 'false';

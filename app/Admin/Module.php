@@ -42,7 +42,7 @@ class Module extends Model
         $results = $modules->save();
         $actions = [];
         if ($request->input('module_action')) {
-            foreach ($request->input('module_action') as $key => $module_action) {
+            foreach ($request->input('module_action') as $module_action) {
                 array_push($actions, ModuleAction::firstOrNew(['module_id' => $modules->id,
                                                             'action_key' => $module_action, ]));
             }
