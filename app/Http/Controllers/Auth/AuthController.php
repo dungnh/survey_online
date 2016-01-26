@@ -27,8 +27,6 @@ class AuthController extends Controller
 
     /**
      * Create a new authentication controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -38,7 +36,8 @@ class AuthController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data Data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -53,7 +52,8 @@ class AuthController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data Data
+     *
      * @return User
      */
     protected function create(array $data)
@@ -65,7 +65,11 @@ class AuthController extends Controller
         ]);
     }
     /**
-     * Post login user Ajax
+     * Post login user Ajax.
+     *
+     * @param Request $request Request
+     *
+     * @return boolean
      */
     public function postLoginAjax(Request $request)
     {
@@ -73,7 +77,7 @@ class AuthController extends Controller
         if (Auth::attempt($data, $request->has('remember'))) {
             return 'true';
         }
-        return "false";
 
+        return 'false';
     }
 }

@@ -12,6 +12,11 @@
     </rule>
 
     <rule ref="rulesets/controversial.xml">
+        <exclude name="CamelCaseClassName" />
+        <exclude name="CamelCasePropertyName" />
+        <exclude name="CamelCaseMethodName" />
+        <exclude name="CamelCaseParameterName" />
+        <exclude name="CamelCaseVariableName" />
     </rule>
 
     <rule ref="rulesets/unusedcode.xml"/>

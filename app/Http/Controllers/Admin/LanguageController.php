@@ -11,6 +11,9 @@ use App\Admin\AppLanguage;
 
 class LanguageController extends Controller
 {
+    /**
+     * Contruct function
+     */
     public function __construct()
     {
         $info_user = User::find(Auth::id());
@@ -44,7 +47,7 @@ class LanguageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request Request
      *
      * @return \Illuminate\Http\Response
      */
@@ -52,7 +55,7 @@ class LanguageController extends Controller
     {
         $idLang = $request->input('lang');
         $infoLang = Language::find($idLang);
-        $langeName = $infoLang->languages;
+        $infoLang->languages;
 
         $languages = new AppLanguage();
         $languages->code = $infoLang->code;
@@ -66,7 +69,7 @@ class LanguageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param Request $request Request
      *
      * @return \Illuminate\Http\Response
      */

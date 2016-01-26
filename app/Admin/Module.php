@@ -11,11 +11,24 @@ class Module extends Model
     public $timestamps = false;
     protected $fillable = ['name', 'route_key'];
 
+    /**
+     * Module hasMany ModuleAction.
+     *
+     * @return Illuminate\Database\Eloquent\Relations\hasMany
+     */
     public function actions()
     {
         return $this->hasMany('App\Admin\ModuleAction');
     }
 
+    /**
+     * Save data
+     *
+     * @param Request $request   Request
+     * @param ID      $module_id Module id
+     *
+     * @return boolean
+     */
     public function saveData($request, $module_id = '')
     {
         if ($module_id) {
@@ -29,7 +42,7 @@ class Module extends Model
         $results = $modules->save();
         $actions = [];
         if ($request->input('module_action')) {
-            foreach ($request->input('module_action') as $key => $module_action) {
+            foreach ($request->input('module_action') as $module_action) {
                 array_push($actions, ModuleAction::firstOrNew(['module_id' => $modules->id,
                                                             'action_key' => $module_action, ]));
             }
@@ -41,6 +54,13 @@ class Module extends Model
         return $results;
     }
 
+    /**
+     * Delete data
+     *
+     * @param Int $module_id Module id
+     *
+     * @return boolean
+     */
     public function deleteData($module_id)
     {
         $modules = self::find($module_id);

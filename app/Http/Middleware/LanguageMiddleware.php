@@ -11,8 +11,8 @@ class LanguageMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \Closure                 $next
+     * @param \Illuminate\Http\Request $request Request
+     * @param \Closure                 $next    Closure
      *
      * @return mixed
      */
@@ -33,7 +33,7 @@ class LanguageMiddleware
                 }
             }
         }
-        $array_language = ['en','jp','vi','cpanel','auth'];
+        $array_language = ['en', 'jp', 'vi', 'cpanel', 'auth'];
         if (!in_array($active_language, $array_language)) {
             return redirect('/en/404');
         }

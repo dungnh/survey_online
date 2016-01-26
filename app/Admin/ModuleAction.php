@@ -10,6 +10,11 @@ class ModuleAction extends Model
     public $timestamps = false;
     protected $fillable = ['module_id', 'action_key'];
 
+    /**
+     * ModuleAction hasOne Module
+     *
+     * @return Illuminate\Database\Eloquent\Relations\hasOne
+     */
     public function modules()
     {
         return $this->hasOne('App\Admin\Module');

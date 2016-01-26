@@ -25,6 +25,14 @@ class Configuration extends Model
                             'properties',
                           ];
 
+    /**
+     * Save data config
+     *
+     * @param Request $request   Request
+     * @param Id      $config_id Config id
+     *
+     * @return int
+     */
     public function saveData($request, $config_id = '')
     {
         if ($config_id) {

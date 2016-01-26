@@ -31,9 +31,10 @@ class User extends Model
     /**
      * Upload images.
      *
-     * @parram Images
+     * @param Request $request Request
+     * @param Int     $user_id User id
      *
-     * @return Image name
+     * @return int
      */
     public function changePassword($request, $user_id)
     {
@@ -45,6 +46,14 @@ class User extends Model
         return $user_id;
     }
 
+    /**
+     * Save data.
+     *
+     * @param Request $request Request
+     * @param Int     $user_id User id
+     *
+     * @return int
+     */
     public function saveData($request, $user_id = '')
     {
         $password = '';
@@ -52,7 +61,7 @@ class User extends Model
         if ($user_id) {
             $user = self::find($user_id);
             //Dectach
-            $detact = $user->roles()->detach();
+            $user->roles()->detach();
             $password = $user->password;
         } else {
             // Check duplicate
@@ -73,8 +82,7 @@ class User extends Model
         $user->password = $new_password;
         $results = $user->save();
         if ($results) {
-            $results_return = $user->roles()->attach($role_id);
-
+            $user->roles()->attach($role_id);
             return $user->id;
         } else {
             return $results;
@@ -87,7 +95,6 @@ class User extends Model
      */
     public function hasAccess()
     {
-        $permissionsArray = [];
         $permissions = $this->roles->load('permissions')->fetch('permissions')->toArray();
 
         return array_map('strtolower', array_unique(array_flatten(array_map(function ($permission) {
