@@ -7,7 +7,7 @@
         <meta name="author" content="Ari Rusmanto, Isoh Design Studio, Warung Themes">
         <meta property="og:image" content="http://asiantech.vn/assets/images/thumbs/img-development.png" />
         <meta property="og:description" content="We at AsianTech want to be at the forefront of the IT revolution in Vietnam. Our engineers work not only for professional and technological development, but also aspire to be part of an internationally expanding economy that is shaping the future of their country" />
-        <title>@section('title') Asian Tech Co., Ltd. @show</title>
+        <title>@section('title') @if(isset($title_all)) {{$title_all}} @endif @show</title>
         <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon" />
         <link href='https://fonts.googleapis.com/css?family=Playfair+Display&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400italic' rel='stylesheet' type='text/css'>

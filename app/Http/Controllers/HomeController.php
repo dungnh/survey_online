@@ -16,15 +16,16 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $language = $request->route('language');
-        if (!$language) {
-            $language = new Language();
-            $default_language = $language->getDefaultLanguage();
-        } else {
-            $default_language = $language;
-        }
+        // $language = $request->route('language');
+        // if (!$language) {
+        //     $language = new Language();
+        //     $default_language = $language->getDefaultLanguage();
+        // } else {
+        //     $default_language = $language;
+        // }
 
-        return redirect("/$default_language/index");
+        // return redirect("/$default_language/index");
+        return redirect("cpanel");
     }
 
     /**
@@ -34,8 +35,9 @@ class HomeController extends Controller
      */
     public function home()
     {
-        $title = 'Home';
+        // $title = 'Home';
 
-        return view('home', compact('title'));
+        // return view('home', compact('title'));
+        return redirect("cpanel");
     }
 }

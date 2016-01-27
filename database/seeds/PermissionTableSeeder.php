@@ -29,6 +29,9 @@ class PermissionTableSeeder extends Seeder
                   "module_create",
                   "module_update",
                   "module_delete",
+                  "survey_create",
+                  "survey_update",
+                  "survey_delete",
               );
 
         DB::table('permissions')->truncate();

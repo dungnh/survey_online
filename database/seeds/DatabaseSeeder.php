@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionTableSeeder::class);
         $this->call(ModuleTableSeeder::class);
         $this->call(UsersTableSeeder::class);
+        $this->call(ModuleActionTableSeeder::class);
         $this->command->info('user table seeded!');
         $this->command->info('Email: admin@admin.io');
         $this->command->info('Password: admin');

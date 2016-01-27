@@ -19,7 +19,6 @@
 @endsection
 @section('content')
 <!-- begin: .tray-center -->
-
 <div class="tray tray-center">
 {!! Form::open(array('url' => URL::to('cpanel/groupuser/update'), 'method' => 'post', 'files'=> true, 'class' => 'form-validate2 form-horizontal', 'role' => 'form')) !!}
     <!-- create new order panel -->

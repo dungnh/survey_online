@@ -3,7 +3,7 @@
     <head>
         <!-- Meta, title, CSS, favicons, etc. -->
         <meta charset="utf-8">
-        <title>@section('title') - AsianTech Inc. @show</title>
+        <title>@section('title') @if(isset($title_all)) {{$title_all}} @endif @show</title>
         <meta name="author" content="PHP Team">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         @include('admin.partials.css')
@@ -36,7 +36,7 @@
                 <footer id="content-footer" class="affix">
                     <div class="row">
                         <div class="col-xs-6">
-                            <span class="footer-legal">© 2015 AsianTech Inc</span>
+                            <span class="footer-legal"> </span>
                         </div>
 
                     </div>

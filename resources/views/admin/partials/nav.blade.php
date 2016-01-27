@@ -47,9 +47,11 @@ if($info_user) {
         @endif
         @if(in_array('survey', $array_access))
         <li>
-            <a href="{{route('cpanel.survey.create')}}">
-                <span class="glyphicon glyphicon-user"></span>
+            <a href="{{route('cpanel.survey.index')}}">
+                <span class="glyphicon glyphicon-question-sign"></span>
                 <span class="sidebar-title"> {{ trans('cpanel.survey')}} </span>
+            </a>
+        </li>
         @endif
         @if(in_array('module', $array_access))
         <li>

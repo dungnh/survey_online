@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\Auth;
 class SurveyController extends Controller
 {
     /**
+     * Show  Survey index
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('admin.survey.index');
+    }
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -28,7 +37,8 @@ class SurveyController extends Controller
      */
     public function store(Request $request)
     {
-        return str_random(6).md5(time());
+       
+        // return str_random(6).md5(time());
         $data = json_encode($request->all());
         $result = Survey::create([
             'user_id' => Auth::user()->id,

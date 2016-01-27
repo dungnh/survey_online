@@ -127,7 +127,6 @@ return [
     'new_team ' => 'New team',
     'list_teams ' => 'List teams',
     'team_name ' => 'Team name',
-    'description ' => 'Description',
     'update_team ' => 'Update team',
     'manage_timeline ' => 'Manage timeline',
     'time' => 'Time',
@@ -146,5 +145,10 @@ return [
     'name' => 'Name',
     'new_user' => 'New user',
     'list_user' => 'List user',
-
+    'management_module' => 'Management module',
+    'route_key' => 'Route key',
+    'list_module' => 'List module',
+    'description' => 'Description',
+    'survey'  => 'Survey',
+    'module' => 'Module',
 ];
