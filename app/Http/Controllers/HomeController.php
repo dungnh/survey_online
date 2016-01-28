@@ -10,8 +10,6 @@ class HomeController extends Controller
     /**
      * Index page
      *
-     * @param Request $request Request
-     *
      * @return redirect
      */
     public function index()
@@ -31,7 +29,7 @@ class HomeController extends Controller
     /**
      * Home page
      *
-     * @return respone
+     * @return redirect
      */
     public function home()
     {
