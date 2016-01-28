@@ -33,7 +33,6 @@ class GroupUserController extends Controller
     public function create()
     {
         $modules = Module::get();
-
         return view('admin.user.newgroup', compact('modules'));
     }
 
@@ -46,6 +45,7 @@ class GroupUserController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         $roles = new Role();
         $role_id = $request->input('role_id', '');
         $results_role = $roles->saveData($request, $role_id);

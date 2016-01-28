@@ -2,14 +2,7 @@
 <?php
 $array_access = array();
 if($info_user) {
-    $RouteName = Route::current()->getName();
-    $ModuleName = '';
-    if ($RouteName) {
-        $arrRoute = explode('.', $RouteName);
-        if (count($arrRoute) > 2) {
-            $ModuleName = $arrRoute[1];
-        }
-    }
+    $ModuleName = Request::segment(2);
     $list_access = $info_user->hasAccess();
     foreach ($list_access as $key => $value) {
         $array = explode('_', $value);
@@ -61,18 +54,19 @@ if($info_user) {
             </a>
         </li>
         @endif
-        @if(in_array('config', $array_access))
         <li>
-            <a class="accordion-toggle @if (in_array($ModuleName, array('languages'))) menu-open @endif" href="#">
+            <a class="accordion-toggle @if (in_array($ModuleName, array('languages','config'))) menu-open @endif" href="#">
                 <span class="glyphicon glyphicon-fire"></span>
                 <span class="sidebar-title"> {{ trans('cpanel.setting')}} </span>
                 <span class="caret"></span>
             </a>
             <ul class="nav sub-nav">
+            @if(in_array('languages', $array_access))
                 <li @if ($ModuleName == 'languages')class="active" @endif>
                     <a href="/cpanel/languages">
                         <span class="glyphicon glyphicon-book"></span> {{ trans('cpanel.languages')}} </a>
                 </li>
+            @endif
                 <!-- <li @if ($ModuleName == 'translate')class="active" @endif>
                     <a href="/cpanel/translate">
                         <span class="glyphicon glyphicon-modal-window"></span> Translate </a>
@@ -83,7 +77,6 @@ if($info_user) {
                 </li>
             </ul>
         </li>
-        @endif
         @endif
     </ul>
     <!-- End: Sidebar Menu -->

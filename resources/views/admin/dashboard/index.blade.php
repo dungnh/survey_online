@@ -19,6 +19,7 @@
 <section id="content">
 	<!-- dashboard tiles -->
 	<div class="row">
+        Dashboard index
 	</div>
 </section>
 <!-- End: .admin-panels -->

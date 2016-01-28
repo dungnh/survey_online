@@ -14,9 +14,9 @@ use Illuminate\Routing\Router;
 class DashboardController extends Controller
 {
     /**
-     * Get index 
+     * Display a listing of the resource.
      *
-     * @return respone
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
