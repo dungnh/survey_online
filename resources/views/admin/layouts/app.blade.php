@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="author" content="nguyenvq@asiantech.vn">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>@section('title') - AsianTech Inc. @show</title>
+        <title>@section('title') - @if(isset($title_all)) {{$title_all}} @endif @show</title>
         @section('meta_keywords')
         <meta name="keywords" content=""/>
         @show @section('meta_author')

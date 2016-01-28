@@ -13,46 +13,29 @@ class ModuleTableSeeder extends Seeder
     public function run()
     {
 
-        $modules = array(0 => array(
-            "name" => "Management Static page",
-            "route_key" => "staticpage"
-          ),
-          1 => array(
-            "name" => "Management Services",
-            "route_key" => "service"
-          ),
-          2 => array(
-            "name" => "Management Timeline",
-            "route_key" => "timeline"
-          ),
-          3 => array(
-            "name" => "Management Team",
-            "route_key" => "team"
-          ),
-          4 => array(
-            "name" => "Management Member",
-            "route_key" => "member"
-          ),
-          5 => array(
-            "name" => "Management Contact",
-            "route_key" => "contact"
-          ),
-          6 => array(
+        $modules = array(
+          0 => array(
             "name" => "Management Group user",
             "route_key" => "groupuser"
           ),
-          7 => array(
+          1 => array(
             "name" => "Management User",
             "route_key" => "user"
           ),
-          8 => array(
+          2 => array(
             "name" => "Management Language",
             "route_key" => "languages"
           ),
-          9 => array(
+          3 => array(
             "name" => "Management Module",
-            "route_key" => "modules"
-          ));
+            "route_key" => "module"
+          ),
+          4 => array(
+            "name" => "Management Survey",
+            "route_key" => "survey"
+          ),
+
+        );
 
         DB::table('modules')->truncate();
         foreach ($modules as $key => $value) {
@@ -64,6 +47,5 @@ class ModuleTableSeeder extends Seeder
                 'updated_at' => Carbon\Carbon::now(),
             ]);
         }
-
     }
 }

@@ -16,8 +16,9 @@ class LanguageController extends Controller
      */
     public function __construct()
     {
-        $info_user = User::find(Auth::id());
-        view()->share('info_user', $info_user);
+        parent::__construct();
+        //$info_user = User::find(Auth::id());
+        //view()->share('info_user', $info_user);
         view()->share('type', 'languages');
     }
     /**

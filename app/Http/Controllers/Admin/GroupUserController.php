@@ -33,7 +33,6 @@ class GroupUserController extends Controller
     public function create()
     {
         $modules = Module::get();
-
         return view('admin.user.newgroup', compact('modules'));
     }
 
@@ -126,7 +125,6 @@ class GroupUserController extends Controller
             $array_permission[] = $value->permission_slug;
         }
         $action_configs = \Config::get('action');
-
         return view('admin.user.updategroup', compact('modules', 'role', 'array_permission', 'action_configs'));
     }
 }

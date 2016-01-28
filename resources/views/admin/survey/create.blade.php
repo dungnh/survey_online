@@ -50,8 +50,8 @@
                         <!-- </a> -->
                     </li>
                 </ul>
-                <div class="tab-content survey-create">
-                    <div id="survey" class="tab-pane">
+                <div class="tab-content survey-create ">
+                    <div id="survey" class="tab-pane active" >
                         <section class="panel">
                             <div class="panel-body">
                                 <form role="form">
@@ -71,6 +71,7 @@
                                         <button type="button" ng-click="addQuestion()" class="btn btn-link">Insert question</button>
                                     </div>
                                     <div class="form-group" ng-repeat="(key, qs) in survey.questions">
+                                        <!-- panel -->
                                         <section class="panel">
                                             <div class="panel-heading" style="padding: 0; border: none;">
 
@@ -138,6 +139,7 @@
                                                 </div>
                                             </div>
                                         </section>
+                                        <!-- end panel -->
                                     </div>
                                     <div class="form-group">
                                         <div class="input-group">
@@ -149,7 +151,7 @@
                             </div>
                         </section>
                     </div>
-                    <div id="setting" class="tab-pane active">
+                    <div id="setting" class="tab-pane">
                       @include('admin.survey._setting')
                     </div>
                   </div>

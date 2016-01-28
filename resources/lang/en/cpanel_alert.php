@@ -28,6 +28,6 @@ return [
     'configuration_updated' => 'Configuration updated!',
     'password changed' => 'Your password has been changed.',
     'password_incorrect' => 'Current password incorrect.',
-    
+    'password_changed' => 'Password changed',
 
 ];

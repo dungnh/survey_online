@@ -14,18 +14,13 @@ use Illuminate\Routing\Router;
 class DashboardController extends Controller
 {
     /**
-     * Get index
+     * Display a listing of the resource.
      *
-     * @return respone
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
         $title = 'Dashboard';
-        $users = User::count();
-        $static_page = 243;
-        $services = 323;
-        $members = 157;
-        $contacts = 99;
-        return view('admin.dashboard.index', compact('title', 'users', 'static_page', 'services', 'members', 'contacts'));
+        return view('admin.dashboard.index', compact('title'));
     }
 }

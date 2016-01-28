@@ -96,7 +96,6 @@ class User extends Model
     public function hasAccess()
     {
         $permissions = $this->roles->load('permissions')->fetch('permissions')->toArray();
-
         return array_map('strtolower', array_unique(array_flatten(array_map(function ($permission) {
 
             return array_fetch($permission, 'permission_slug');

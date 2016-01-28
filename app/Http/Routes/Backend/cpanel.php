@@ -48,11 +48,8 @@ $router->group(['prefix' => 'groupuser'], function ($router) {
     $router->post('create', ['uses' => 'Admin\GroupUserController@store', 'middleware' => ['acl:groupuser_create']]);
 });
 // Surveys
-$router->resource('survey', 'Admin\SurveyController');
-$router->get('survey/data/{id}', [
-    'as' => 'cpanel.survey.data',
-    'uses' => 'Admin\SurveyController@getData'
-]);
+//$router->resource('survey', 'Admin\SurveyController');
+
 // Route::get('list-modules',['as' =>'cpanel.list-modules',
 //     'uses'=>'Admin\SurveyController@listModules']);
 
@@ -70,4 +67,19 @@ $router->group(['prefix' => 'module'], function ($router) {
     $router->get('{moduleid}/update', ['uses' => 'Admin\ModuleController@update', 'middleware' => ['acl:module_update']]);
     $router->post('update', ['uses' => 'Admin\ModuleController@store', 'middleware' => ['acl:module_update']]);
 });
+
+$router->group(['prefix' => 'survey'], function ($router) {
+    $router->get('/', [
+        'as' => 'cpanel.survey.index',
+        'uses' => 'Admin\SurveyController@index',
+        'middleware' => ['acl:survey_create|survey_update|survey_delete'],
+    ]);
+      $router->get('create', ['as' => 'cpanel.survey.create','uses' => 'Admin\SurveyController@create', 'middleware' => ['acl:survey_create']]);
+    $router->post('create', ['as' => 'cpanel.survey.store','uses' => 'Admin\SurveyController@store', 'middleware' => ['acl:survey_create']]);
+    $router->get('data/{id}', [
+    'as' => 'cpanel.survey.data',
+    'uses' => 'Admin\SurveyController@getData'
+    ]);
+});
+
 Route::get('/error/denied', 'Admin\AccessController@index');

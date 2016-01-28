@@ -33,7 +33,7 @@
                     <div class="section row mb5">
                         <div class="col-md-12">
                             <div class="col-md-12">
-                            {!! Form::label('role_title', trans('cpanel.group_name', array('class' => 'form-control-static text-muted')) !!}
+                            {!! Form::label('role_title', trans('cpanel.group_name', array('class' => 'form-control-static text-muted'))) !!}
                             </div>
                             <div class="col-md-6">
                                 <label for="role_title" class="field">

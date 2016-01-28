@@ -9,6 +9,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\Admin\AppLanguage;
 use App\Admin\User;
+use App\Admin\Configuration;
 use View;
 
 abstract class Controller extends BaseController
@@ -22,7 +23,12 @@ abstract class Controller extends BaseController
     {
         $info_user = User::find(Auth::id());
         $list_language = AppLanguage::all();
+        $setting_title = Configuration::first();
+        if ($setting_title) {
+            $setting_title = unserialize($setting_title->properties)['title'];
+        }
         View::share('list_language', $list_language);
         View::share('info_user', $info_user);
+        View::share('title_all', $setting_title);
     }
 }
