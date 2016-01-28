@@ -14,7 +14,7 @@ class HomeController extends Controller
      *
      * @return redirect
      */
-    public function index(Request $request)
+    public function index()
     {
         // $language = $request->route('language');
         // if (!$language) {
